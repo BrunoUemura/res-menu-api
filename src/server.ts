@@ -1,7 +1,9 @@
-import express from 'express';
+import 'dotenv/config';
+import './util/module-alias';
+import server from '@src/config/server-config';
 
-const app = express();
+const PORT = process.env.PORT || 5000;
 
-app.listen(5000, () => {
-  console.log('Server running on port 5000');
+server.listen(PORT, () => {
+  console.log(`Menu API running on port ${PORT}`);
 });
