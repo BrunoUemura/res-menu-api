@@ -7,9 +7,19 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  id         String @id @default(uuid())
+  username   String @unique
+  password   String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("user")
+}
+
 model Menu {
   id         String @id @default(uuid())
-  title       String
+  title      String
   image      String
   price      Float
   category   String
